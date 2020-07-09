@@ -1,0 +1,49 @@
+(gdb) b 68
+Breakpoint 1 at 0x1619: file main.cpp, line 68.
+(gdb) r
+Starting program: /home/terryhu/work/B/main 
+Please input your student id:
+2019013269
+
+Breakpoint 1, main () at main.cpp:68
+68	    n = n % 900 + 1100;
+(gdb) watch tot[1]
+Hardware watchpoint 2: tot[1]
+(gdb) c
+Continuing.
+
+Hardware watchpoint 2: tot[1]
+
+Old value = 0
+New value = 1
+solve () at main.cpp:55
+55	        for(int j = cumsum; j <= n; ++j){
+(gdb) awatch tot[1]
+Hardware access (read/write) watchpoint 3: tot[1]
+(gdb) c
+Continuing.
+
+Hardware access (read/write) watchpoint 3: tot[1]
+
+Value = 1
+
+Hardware access (read/write) watchpoint 3: tot[1]
+
+Value = 1
+
+Hardware access (read/write) watchpoint 3: tot[1]
+
+Value = 1
+0x0000555555555517 in solve () at main.cpp:56
+56	            tot[j] = (tot[j] + nxt[j]) % mod;
+(gdb) print cumsum
+$1 = 1
+(gdb) set variable tot[1] = 0
+(gdb) delete 1-5
+No breakpoint number 4.
+No breakpoint number 5.
+(gdb) c
+Continuing.
+839369647[Inferior 1 (process 31086) exited normally]
+(gdb) quit
+

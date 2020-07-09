@@ -1,0 +1,2 @@
+代码架构：Adapter类为适配器基类，声明了play、pause、doubleSpeed函数；AudioAdapter与VideoAdapter均继承自Adapter，针对Audio和Video对play、pause、doubleSpeed进行具体实现；Player类实现全能播放器的功能
+设计思路：需要对Audio、Video同时进行适配，选择设计一个Adapter基类，派生出AudioAdapter和VideoAdapter，利用虚函数实现Audio和Video的不同功能；这样就完成了接口的统一，在Player的各个函数中只需调用Adapter的play、pause、doubleSpeed函数即可
